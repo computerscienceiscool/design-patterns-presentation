@@ -69,10 +69,10 @@
 
 ---
 
-## Bonus: How `main.go` Runs Everything
+## `main.go` Runs Everything
 - Calls each pattern demo one by one.
 - Groups them under `Creational`, `Structural`, and `Behavioral` sections.
 - Uses `fmt.Println("🔹 Pattern Name:")` to label outputs for clarity.
 
-🚀 **Use this cheat sheet to explain each pattern during your presentation!**
+
 
