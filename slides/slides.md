@@ -1,4 +1,6 @@
 
+class: center, middle
+
 # Design Patterns in Software Development
 ## Understanding Key Patterns for Scalable Code
 
@@ -42,6 +44,14 @@
 
 ---
 
+
+# Singleton Pattern
+
+Ensures a class has **only one instance** and provides a global access point.
+Used in logging systems, database connections, and configuration managers.
+
+---
+
 # Singleton Pattern
 
 Ensures a class has **only one instance** and provides a global access point.
@@ -79,6 +89,15 @@ func main() {
 
 # Factory Method Pattern
 
+Encapsulates object creation logic so that calling code does not need to know the specific class being instantiated.
+Commonly used in frameworks and libraries to provide extensibility.
+
+
+---
+
+
+# Factory Method Pattern
+
 Encapsulates object creation logic to avoid direct instantiation.
 
 Example: **User Roles in an Application**
@@ -112,6 +131,14 @@ func main() {
 ```
 
 ---
+
+# Builder Pattern
+
+Used for **step-by-step object construction**, especially when many optional parameters exist.
+Ideal for constructing complex objects like HTTP requests or meal orders.
+
+---
+
 
 # Builder Pattern
 
@@ -161,6 +188,16 @@ func main() {
 
 ---
 
+
+# Facade Pattern
+
+Simplifies complex systems by providing a **unified interface** to underlying subsystems.
+Used in APIs, smart home systems, and large enterprise applications.
+
+
+---
+
+
 # Facade Pattern
 
 Simplifies interactions by providing a **unified interface**.
@@ -196,6 +233,16 @@ func main() {
 ```
 
 ---
+
+
+# Adapter Pattern
+
+Allows incompatible interfaces to work together by acting as a **bridge**.
+Used for hardware adapters, third-party API integrations, and data format conversions.
+
+
+---
+
 
 # Adapter Pattern
 
@@ -240,6 +287,14 @@ func main() {
 
 # Strategy Pattern
 
+Encapsulates interchangeable behaviors, allowing dynamic selection of an appropriate algorithm.
+Used in sorting algorithms, payment methods, and navigation apps.
+
+---
+
+
+# Strategy Pattern
+
 Encapsulates interchangeable behaviors.
 
 Example: **Transport Strategy**
@@ -269,6 +324,15 @@ func main() {
 ```
 
 ---
+
+# Observer Pattern
+
+Defines a one-to-many dependency where objects (observers) react to changes in a subject.
+Used in event-driven systems, social media notifications, and stock market updates.
+
+
+---
+
 
 # Observer Pattern
 
@@ -336,6 +400,36 @@ func main() {
 |                              |                        | Template Method         |
 |                              |                        | Visitor                 |
 
+
+
+---
+
+
+# Summary: 7 Key Design Patterns
+
+- **Singleton** → Ensures a single instance with global access.  
+- **Factory Method** → Creates objects dynamically based on input.  
+- **Builder** → Constructs complex objects step by step.  
+- **Facade** → Provides a simple interface to a complex system.  
+- **Adapter** → Bridges incompatible interfaces.  
+- **Strategy** → Allows dynamic selection of behaviors.  
+- **Observer** → Notifies multiple subscribers of changes.  
+
+---
+
+
+# Quick Quiz: Match the Patterns!
+
+Can you match each pattern to a real-world scenario?  
+We’ll discuss together!
+
+1. **Singleton**
+2. **Factory Method**
+3. **Builder**
+4. **Facade**
+5. **Adapter**
+6. **Strategy**
+7. **Observer**
 
 
 ---
