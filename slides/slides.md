@@ -137,16 +137,13 @@ func main() {
 # Builder Pattern
 
 Used for **step-by-step object construction**, especially when many optional parameters exist.
-Ideal for constructing complex objects like HTTP requests or meal orders.
+ 
 
 ---
 
 
 # Builder Pattern
-
-Used for **step-by-step object construction**, especially when many optional parameters exist.
-
-Example: **Building an HTTP Request**
+Example: **Building a Pizaa**
 
 ```go
 package main
@@ -154,41 +151,51 @@ package main
 import "fmt"
 
 // Product: The object being built
-type Request struct {
-    method string
-    url    string
+type Pizza struct {
+    size   string
+    cheese bool
+    pepperoni bool
 }
 
 // Builder: Defines the step-by-step construction
-type RequestBuilder struct {
-    method string
-    url    string
+type PizzaBuilder struct {
+    size   string
+    cheese bool
+    pepperoni bool
 }
 
-func (rb *RequestBuilder) SetMethod(method string) {
-    rb.method = method
+func (pb *PizzaBuilder) SetSize(size string) *PizzaBuilder {
+    pb.size = size
+    return pb
 }
 
-func (rb *RequestBuilder) SetURL(url string) {
-    rb.url = url
+func (pb *PizzaBuilder) AddCheese() *PizzaBuilder {
+    pb.cheese = true
+    return pb
 }
 
-func (rb *RequestBuilder) Build() Request {
-    return Request{
-        method: rb.method,
-        url:    rb.url,
+func (pb *PizzaBuilder) AddPepperoni() *PizzaBuilder {
+    pb.pepperoni = true
+    return pb
+}
+
+func (pb *PizzaBuilder) Build() Pizza {
+    return Pizza{
+        size:   pb.size,
+        cheese: pb.cheese,
+        pepperoni: pb.pepperoni,
     }
 }
 
 func main() {
-    builder := RequestBuilder{}  // Create a builder instance
+    // Using the builder to create a customized pizza
+    pizza := PizzaBuilder{}.
+        SetSize("Large").
+        AddCheese().
+        AddPepperoni().
+        Build()
 
-    builder.SetMethod("GET")     // Configure the request
-    builder.SetURL("https://example.com")
-
-    req := builder.Build()       // Construct the final object
-
-    fmt.Println(req.method, req.url) // Output: GET https://example.com
+    fmt.Printf("Pizza: %s, Cheese: %v, Pepperoni: %v\n", pizza.size, pizza.cheese, pizza.pepperoni)
 }
 ```
 
