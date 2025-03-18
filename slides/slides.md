@@ -143,7 +143,7 @@ Used for **step-by-step object construction**, especially when many optional par
 
 
 # Builder Pattern
-Example: **Building a Pizaa**
+Example: **Building a Pizza**
 
 ```go
 package main
