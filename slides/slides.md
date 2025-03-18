@@ -50,7 +50,7 @@ class: center, middle
 Ensures a class has **only one instance** and provides a global access point.
 Used in logging systems, database connections, and configuration managers.
 
-Questions?
+ 
 
 ---
 
