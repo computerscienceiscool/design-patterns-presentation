@@ -75,7 +75,7 @@ class: center, middle
 Ensures a class has **only one instance** and provides a global access point.
 Used in logging systems, database connections, and configuration managers.
 
-Questions?
+ 
 
 ---
 
@@ -162,44 +162,66 @@ func main() {
 # Builder Pattern
 
 Used for **step-by-step object construction**, especially when many optional parameters exist.
-Ideal for constructing complex objects like HTTP requests or meal orders.
+ 
 
 ---
 
 
 # Builder Pattern
-
-Used for **step-by-step object construction**, especially when many optional parameters exist.
-
-Example: **Building an HTTP Request**
+Example: **Building a Pizza**
 
 ```go
+
 package main
 
 import &#34;fmt&#34;
 
-type RequestBuilder struct {
-    method string
-    url    string
+// Product: The object being built
+type Pizza struct {
+    size   string
+    cheese bool
+    pepperoni bool
 }
 
-func (rb *RequestBuilder) SetMethod(method string) *RequestBuilder {
-    rb.method = method
-    return rb
+// Builder: Defines the step-by-step construction
+type PizzaBuilder struct {
+    size   string
+    cheese bool
+    pepperoni bool
 }
 
-func (rb *RequestBuilder) SetURL(url string) *RequestBuilder {
-    rb.url = url
-    return rb
+func (pb *PizzaBuilder) SetSize(size string) *PizzaBuilder {
+    pb.size = size
+    return pb
 }
 
-func (rb *RequestBuilder) Build() string {
-    return fmt.Sprintf(&#34;%s %s&#34;, rb.method, rb.url)
+func (pb *PizzaBuilder) AddCheese() *PizzaBuilder {
+    pb.cheese = true
+    return pb
+}
+
+func (pb *PizzaBuilder) AddPepperoni() *PizzaBuilder {
+    pb.pepperoni = true
+    return pb
+}
+
+func (pb *PizzaBuilder) Build() Pizza {
+    return Pizza{
+        size:   pb.size,
+        cheese: pb.cheese,
+        pepperoni: pb.pepperoni,
+    }
 }
 
 func main() {
-    req := RequestBuilder{}.SetMethod(&#34;GET&#34;).SetURL(&#34;https://example.com&#34;).Build()
-    fmt.Println(req) // GET https://example.com
+    // Using the builder to create a customized pizza
+    pizza := PizzaBuilder{}.
+        SetSize(&#34;Large&#34;).
+        AddCheese().
+        AddPepperoni().
+        Build()
+
+    fmt.Printf(&#34;Pizza: %s, Cheese: %v, Pepperoni: %v\n&#34;, pizza.size, pizza.cheese, pizza.pepperoni)
 }
 ```
 

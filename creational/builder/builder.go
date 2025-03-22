@@ -1,53 +1,42 @@
+package builder
 
-package main
-
-import "fmt"
-
-// Product: The object being built
+// Pizza represents the final product being built
 type Pizza struct {
-    size   string
-    cheese bool
-    pepperoni bool
+	Size      string
+	Cheese    bool
+	Pepperoni bool
 }
 
-// Builder: Defines the step-by-step construction
+// PizzaBuilder provides step-by-step construction of a Pizza
 type PizzaBuilder struct {
-    size   string
-    cheese bool
-    pepperoni bool
+	size      string
+	cheese    bool
+	pepperoni bool
 }
 
+// SetSize sets the size of the pizza
 func (pb *PizzaBuilder) SetSize(size string) *PizzaBuilder {
-    pb.size = size
-    return pb
+	pb.size = size
+	return pb
 }
 
+// AddCheese adds cheese to the pizza
 func (pb *PizzaBuilder) AddCheese() *PizzaBuilder {
-    pb.cheese = true
-    return pb
+	pb.cheese = true
+	return pb
 }
 
+// AddPepperoni adds pepperoni to the pizza
 func (pb *PizzaBuilder) AddPepperoni() *PizzaBuilder {
-    pb.pepperoni = true
-    return pb
+	pb.pepperoni = true
+	return pb
 }
 
+// Build creates the final Pizza object
 func (pb *PizzaBuilder) Build() Pizza {
-    return Pizza{
-        size:   pb.size,
-        cheese: pb.cheese,
-        pepperoni: pb.pepperoni,
-    }
+	return Pizza{
+		Size:      pb.size,
+		Cheese:    pb.cheese,
+		Pepperoni: pb.pepperoni,
+	}
 }
-
-func main() {
-    // Using the builder to create a customized pizza
-    pizza := PizzaBuilder{}.
-        SetSize("Large").
-        AddCheese().
-        AddPepperoni().
-        Build()
-
-    fmt.Printf("Pizza: %s, Cheese: %v, Pepperoni: %v\n", pizza.size, pizza.cheese, pizza.pepperoni)
-}
-
