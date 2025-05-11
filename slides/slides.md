@@ -1,6 +1,6 @@
 
 class: center, middle
-
+ 
 # Design Patterns in Software Development
 ## Understanding Key Patterns for Scalable Code
 
